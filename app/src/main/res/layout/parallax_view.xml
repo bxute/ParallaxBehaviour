@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Developer email: hiankit.work@gmail.com
+  ~ GitHub: https://github.com/bxute
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    app:layout_behavior=".ParallaxViewBehaviour"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="1"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:background="#9c27b0"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
+    <TextView
+        android:text="2"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:background="#2196f3"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
+    <TextView
+        android:text="3"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:background="#2e7d32"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
+    <TextView
+        android:text="4"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:background="#ff6d00"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
+    <TextView
+        android:text="5"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:background="#607d8b"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
+</LinearLayout>
