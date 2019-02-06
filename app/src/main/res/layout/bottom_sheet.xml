@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="#ffffff"
-    app:layout_behavior=".BottomSheetBehaviour">
+    app:layout_behavior=".CustomBottomSheetBehaviour">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
