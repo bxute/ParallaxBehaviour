@@ -9,7 +9,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -19,7 +18,7 @@ public class ParallaxViewBehaviour<V extends View> extends CoordinatorLayout.Beh
   private float mMinOffset;
   private float mMaxOffset;
 
-  private int mSelectedIndex = 2;
+  private int mSelectedIndex = 3;
 
   public ParallaxViewBehaviour() {
   }
