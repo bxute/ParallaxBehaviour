@@ -9,12 +9,9 @@ import android.content.Context;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.math.MathUtils;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -23,8 +20,6 @@ import android.view.ViewGroup;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-
-import static com.bxute.custombottomsheet.ParallaxCalendarView.ROW_HEIGHT_DP;
 
 public class CustomBottomSheetBehaviour<V extends View> extends CoordinatorLayout.Behavior<V> {
   public static final int STATE_EXPANDED = 1;
@@ -110,7 +105,7 @@ public class CustomBottomSheetBehaviour<V extends View> extends CoordinatorLayou
     @Override
     public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
       //return MathUtils.clamp(top, mMinOffset, mMaxOffset);
-       return constrainedVerticalPositionFor(top, mMinOffset, mMaxOffset);
+      return constrainedVerticalPositionFor(top, mMinOffset, mMaxOffset);
     }
 
     private int constrainedVerticalPositionFor(int top, int mMinOffset, int mMaxOffset) {
@@ -127,7 +122,6 @@ public class CustomBottomSheetBehaviour<V extends View> extends CoordinatorLayou
 
   public CustomBottomSheetBehaviour(Context context, AttributeSet attrs) {
     super(context, attrs);
-    //mRowHeight = calculateRowHeight(context);
   }
 
   public static <V extends View> CustomBottomSheetBehaviour<V> from(V view) {
@@ -140,6 +134,12 @@ public class CustomBottomSheetBehaviour<V extends View> extends CoordinatorLayou
       throw new IllegalArgumentException("The view is not associated with BottomSheetBehaviour");
     }
     return (CustomBottomSheetBehaviour<V>) behavior;
+  }
+
+  public void configureBehaviour(int minOffset, int maxOffset, int rowHeight){
+    this.mMinOffset = minOffset;
+    this.mMaxOffset = maxOffset;
+    this.mRowHeight = rowHeight;
   }
 
   @Override
@@ -247,12 +247,6 @@ public class CustomBottomSheetBehaviour<V extends View> extends CoordinatorLayou
     //let the parent layout its child
     parent.onLayoutChild(child, layoutDirection);
     mParentHeight = parent.getHeight();
-    if (mRowHeight == 0) {
-      mRowHeight = calculateRowHeight(parent.getContext());
-      mMinOffset = mRowHeight;
-      mMaxOffset = 5 * mRowHeight;
-    }
-
     if (mState == STATE_EXPANDED) {
       ViewCompat.offsetTopAndBottom(child, mMinOffset);
     } else if (mState == STATE_COLLAPSED) {
@@ -392,12 +386,6 @@ public class CustomBottomSheetBehaviour<V extends View> extends CoordinatorLayou
       }
     }
     return null;
-  }
-
-  private int calculateRowHeight(Context context) {
-    return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-     ROW_HEIGHT_DP,
-     context.getResources().getDisplayMetrics());
   }
 
   @IntDef({STATE_COLLAPSED, STATE_DRAGGING, STATE_EXPANDED, STATE_SETTLING})
