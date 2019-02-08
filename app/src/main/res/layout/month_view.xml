@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Developer email: hiankit.work@gmail.com
+  ~ GitHub: https://github.com/bxute
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:text="DD/12/2019"
+        android:textColor="#ffffff"
+        android:textSize="42sp"
+        android:gravity="center"
+        android:background="#6a1b9a"
+        android:layout_width="match_parent"
+        android:layout_height="256dp" />
+
+</RelativeLayout>

@@ -7,7 +7,7 @@ public class MainActivity extends AppCompatActivity {
 
   //Whats Next:
   // - Implement CalendarView
-  // - Customizable Parallax Behaviour (can snap to any row dyanmically)
+  // - Customizable Parallax Behaviour (can snap to any row dynamically)
   // - Modularize the View
   @Override
   protected void onCreate(Bundle savedInstanceState) {
